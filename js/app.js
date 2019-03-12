@@ -25,6 +25,24 @@ function shuffle(array) {
     return array;
 }
 
+var cards;
+cards = $('.card');
+
+var openedCards = [];
+
+function flipCard(card) {
+   card.addClass('open show');
+};
+
+function addOpenCard(card) {
+    openedCards.push(card);
+};
+
+cards.each(function() {
+    $(this).click(function() {
+        flipCard($(this));
+        addOpenCard($(this));
+})});
 
 /*
  * set up the event listener for a card. If a card is clicked:

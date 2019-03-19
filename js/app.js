@@ -31,7 +31,8 @@ cardsIcons = [
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -52,10 +53,10 @@ function replacingCards() {
     $('.stars').children().children()[2].className = 'fa fa-star';
     $('.moves')[0].innerHTML = counter;
     var newCards = shuffle(cardsIcons);
-    for (i = 0, len = newCards.length; i < len; i++) { 
+    for (i = 0, len = newCards.length; i < len; i++) {
         $('.card').children()[i].className = newCards[i];
         $('.card')[i].className = 'card';
-      };
+    };
     return newCards
 };
 replacingCards();
@@ -69,10 +70,9 @@ var matchedCards = 0;
 function congrats() {
     $('#congrats-modal').modal('show');
     if (min === 0) {
-        $('.modal-body')[0].innerHTML = 'Você realizou ' + counter + ' movimentos em ' + sec + ' segundo(s). Você pontuou ' + $('.fa-star').length + ' estrela(s) de 3.' 
-    }
-    else {
-        $('.modal-body')[0].innerHTML = 'Você realizou ' + counter + ' movimentos em ' + min + ' minuto(s) e ' + sec + ' segundo(s). Você pontuou ' + $('.fa-star').length + ' estrela(s) de 3.' 
+        $('.modal-body')[0].innerHTML = 'Você realizou ' + counter + ' movimentos em ' + sec + ' segundo(s). Você pontuou ' + $('.fa-star').length + ' estrela(s) de 3.'
+    } else {
+        $('.modal-body')[0].innerHTML = 'Você realizou ' + counter + ' movimentos em ' + min + ' minuto(s) e ' + sec + ' segundo(s). Você pontuou ' + $('.fa-star').length + ' estrela(s) de 3.'
     };
 };
 
@@ -103,14 +103,19 @@ function matchCards(card1, card2) {
 function unmatchCards(card1, card2) {
     card1.addClass('animated swing unmatch');
     card2.addClass('animated swing unmatch');
-    setTimeout(function () {card1.removeClass('open show animated swing unmatch'); card2.removeClass('open show animated swing unmatch'); }, 900);
+    setTimeout(function() {
+        card1.removeClass('open show animated swing unmatch');
+        card2.removeClass('open show animated swing unmatch');
+    }, 900);
     openedCards = [];
 }
 
 function flipCard(card) {
     if (card.hasClass('match') === false) {
         card.addClass('open show animated flipInX');
-        setTimeout(function () {card.removeClass('animated flipInX'); }, 700);
+        setTimeout(function() {
+            card.removeClass('animated flipInX');
+        }, 700);
     };
 };
 
@@ -119,10 +124,9 @@ function addOpenCard(card) {
     if (openedCards.length === 2) {
         newMove();
         if (openedCards[0].children()[0].outerHTML === openedCards[1].children()[0].outerHTML) {
-            matchCards(openedCards[0],openedCards[1]);
-        } 
-        else {
-            unmatchCards(openedCards[0],openedCards[1]);
+            matchCards(openedCards[0], openedCards[1]);
+        } else {
+            unmatchCards(openedCards[0], openedCards[1]);
         };
     };
 };
@@ -131,7 +135,8 @@ cards.each(function() {
     $(this).click(function() {
         flipCard($(this));
         setTimeout(addOpenCard, 900, $(this));
-})});
+    })
+});
 
 $('.restart').click(function() {
     replacingCards(cards);
@@ -145,11 +150,11 @@ $('#modal-restart').click(function() {
 var sec = 0;
 var min = 0;
 var handler = function() {
-  if (++sec === 60) {
-    sec = 0;
-    if (++min === 60) min = 0;
-  }
-  document.getElementById("time").innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
+    if (++sec === 60) {
+        sec = 0;
+        if (++min === 60) min = 0;
+    }
+    document.getElementById("time").innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
 };
 setInterval(handler, 1000);
 handler();

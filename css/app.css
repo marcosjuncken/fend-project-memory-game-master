@@ -126,6 +126,10 @@ h1 {
 	float: right;
 }
 
+/*
+ * Styles for the modal button
+ */
+
 .btn-primary {
 	background-color: #bb8fce;
 	border-color: #bb8fce;

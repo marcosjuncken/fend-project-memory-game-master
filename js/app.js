@@ -4,22 +4,17 @@ var cards = $('.card');
 // This is the array that hold all of my cards icons to shuffle
 var cardsIcons = [
     "fa fa-free-code-camp",
-    "fa fa-free-code-camp",
-    "fa fa-github",
     "fa fa-github",
     "fa fa-git",
-    "fa fa-git",
-    "fa fa-stack-overflow",
     "fa fa-stack-overflow",
     "fa fa-terminal",
-    "fa fa-terminal",
-    "fa fa-laptop",
     "fa fa-laptop",
     "fa fa-code",
-    "fa fa-code",
-    "fa fa-coffee",
     "fa fa-coffee"
 ];
+
+// Duplicating all the icons to create the cards deck
+var deck = cardsIcon.concat(cardsIcons)
 
 // This is the array that hold all of my opened cards 
 var openedCards = [];
@@ -69,7 +64,7 @@ function replacingCards() {
     $('.stars').children().children()[2].className = 'fa fa-star';
     $('.moves')[0].innerHTML = counter;
     // create a new deck with shuffle function
-    var newCards = shuffle(cardsIcons);
+    var newCards = shuffle(deck);
     for (i = 0, len = newCards.length; i < len; i++) {
         $('.card').children()[i].className = newCards[i];
         $('.card')[i].className = 'card';

@@ -213,12 +213,15 @@ var handler = function() {
     document.getElementById("time").innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
 };
 
-// When someone clicks the card, execute the flipCard function
+// When someone clicks the card, execute the flipCard and addOpenCard functions
 cards.each(function() {
     $(this).click(function() {
-        flipCard($(this));
-        setTimeout(addOpenCard, 900, $(this));
-    })
+        // checking if the card is not opened
+        if ($(this)[0].className === 'card') {
+            flipCard($(this));
+            setTimeout(addOpenCard, 900, $(this));
+        };
+    });
 });
 
 // When someone clicks the restart button, execute the replacingCards function

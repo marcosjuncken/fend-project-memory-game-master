@@ -14,7 +14,7 @@ var cardsIcons = [
 ];
 
 // Duplicating all the icons to create the cards deck
-var deck = cardsIcon.concat(cardsIcons)
+var deck = cardsIcons.concat(cardsIcons)
 
 // This is the array that hold all of my opened cards 
 var openedCards = [];

@@ -42,7 +42,7 @@ h1 {
  */
 
 .deck {
-	width: 660px;
+    width: 660px;
 	min-height: 680px;
 	background: linear-gradient(160deg, #bb8fce 0%, #aed6f1 100%);
 	padding: 32px;
@@ -96,8 +96,8 @@ h1 {
 
 .score-panel {
 	text-align: left;
-	width: 600px;
-	margin-bottom: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
 }
 
 .score-panel .stars {
@@ -115,7 +115,8 @@ h1 {
 .score-panel .restart {
 	display: inline-block;
 	cursor: pointer;
-	padding-left: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .score-panel .restart-text {
@@ -142,4 +143,48 @@ h1 {
 .open>.dropdown-toggle.btn-primary {
 	background-color: #aed6f1;
 	border-color: #aed6f1;
+}
+
+@media only screen and (max-width: 679px) {
+    .deck {
+        width: 100%;
+        background: linear-gradient(160deg, #bb8fce 0%, #aed6f1 100%);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 0 3em;
+    }
+    
+    .deck .card {
+        height: 100px;
+        width: 100px;
+        margin: 5px;
+    }
+    
+    .score-panel .stars {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        margin: 0 5px 0 0;
+    }
+    
+    .score-panel .restart {
+        display: block;
+        cursor: pointer;
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center;
+    }
+    
+    .score-panel .timer {
+        display: inline-block;
+        float: none;
+        padding-left: 15px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
 }

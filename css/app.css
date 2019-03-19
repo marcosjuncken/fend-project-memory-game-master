@@ -93,7 +93,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 600px;
     margin-bottom: 10px;
 }
 
@@ -110,9 +110,17 @@ h1 {
 }
 
 .score-panel .restart {
-    float: right;
+    display: inline-block;
     cursor: pointer;
+    padding-left: 100px;
+}
+
+.score-panel .restart-text {
     padding-left: 10px;
+}
+
+.score-panel .timer {
+    float: right;
 }
 
 .btn-primary {

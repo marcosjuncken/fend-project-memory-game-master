@@ -45,6 +45,8 @@ function shuffle(array) {
 
 function replacingCards() {
     counter = 0;
+    sec = 0;
+    min = 0;
     $('.stars').children().children()[0].className = 'fa fa-star';
     $('.stars').children().children()[1].className = 'fa fa-star';
     $('.stars').children().children()[2].className = 'fa fa-star';
@@ -66,7 +68,12 @@ var matchedCards = 0;
 
 function congrats() {
     $('#congrats-modal').modal('show');
-    $('.modal-body')[0].innerHTML = 'Você realizou ' + counter + ' movimentos e ganhou ' + $('.fa-star').length + ' estrelas de 3.' 
+    if (min === 0) {
+        $('.modal-body')[0].innerHTML = 'Você realizou ' + counter + ' movimentos em ' + sec + ' segundo(s). Você pontuou ' + $('.fa-star').length + ' estrela(s) de 3.' 
+    }
+    else {
+        $('.modal-body')[0].innerHTML = 'Você realizou ' + counter + ' movimentos em ' + min + ' minuto(s) e ' + sec + ' segundo(s). Você pontuou ' + $('.fa-star').length + ' estrela(s) de 3.' 
+    };
 };
 
 function newMove() {
@@ -132,8 +139,20 @@ $('.restart').click(function() {
 
 $('#modal-restart').click(function() {
     replacingCards(cards);
-    $('#exampleModal').modal('hide')
+    $('#congrats-modal').modal('hide')
 })
+
+var sec = 0;
+var min = 0;
+var handler = function() {
+  if (++sec === 60) {
+    sec = 0;
+    if (++min === 60) min = 0;
+  }
+  document.getElementById("time").innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
+};
+setInterval(handler, 1000);
+handler();
 
 
 /*

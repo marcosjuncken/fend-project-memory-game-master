@@ -135,8 +135,8 @@ function matchCards(card1, card2) {
     // execute the congrats function if matched all the cards
     if (matchedCards === 8) {
         congrats();
-    }
-}
+    };
+};
 
 /*
  * When someone choose 2 different cards, this function:
@@ -155,7 +155,7 @@ function unmatchCards(card1, card2) {
     }, 900);
     // reset the opened cards array
     openedCards = [];
-}
+};
 
 /*
  * When someone flip a card, this function:
@@ -224,7 +224,7 @@ cards.each(function() {
 // When someone clicks the restart button, execute the replacingCards function
 $('.restart').click(function() {
     replacingCards(cards);
-})
+});
 
 /*
  * When someone clicks the restart button on modal:
@@ -235,7 +235,7 @@ $('.restart').click(function() {
 $('#modal-restart').click(function() {
     replacingCards(cards);
     $('#congrats-modal').modal('hide')
-})
+});
 
 // To start the game, we create a new deck
 replacingCards();

@@ -1,3 +1,3 @@
 # How to contribute
 
-The files in this repository are used as the starting point for all students. Because we want students to write the majority of the code themselves, pull requests (most likely) will _not_ be merged into the project.
+This is a game and the purpose was to graduate on Udacity Front-End Foundations Nanodegree. If you want to contribute just submit a pull request with a file detailing what are you doing. Thanks!
